@@ -234,7 +234,7 @@ public class itemAdaptor extends RecyclerView.Adapter<itemAdaptor.ViewHolder>
         public void IntiateSecondCarView(ArrayList<HourlyForecast> hourlyForecasts)
         {
             recycler.setHasFixedSize(true);
-            layoutManager = new LinearLayoutManager(this.view.getContext());
+            layoutManager = new LinearLayoutManager(this.view.getContext(),LinearLayoutManager.HORIZONTAL,false);
             recycler.setLayoutManager(layoutManager);
             recycler.setItemAnimator(new DefaultItemAnimator());
             recycler.setAdapter(new foreCastAdapter(this.view.getContext(),hourlyForecasts));
