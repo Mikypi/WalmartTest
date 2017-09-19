@@ -51,9 +51,9 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
             showAlert("Please Enter A Your Zip Code");
         }else
         {
+            Progress();
             presenter.saveShared(zipTest);
             presenter.getHourlyReport(zipTest);
-            Progress();
         }
     }
 
@@ -91,8 +91,9 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
             showAlert("Please Enter Your Zip Code!!!");
         }else
         {
-            presenter.getHourlyReport(zipCode.getText().toString());
             Progress();
+            presenter.saveShared(zipCode.getText().toString());
+            presenter.getHourlyReport(zipCode.getText().toString());
         }
     }
 
