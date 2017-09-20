@@ -1,4 +1,4 @@
-package com.example.michaeliverson.walmarttest.Model.Pojos;
+package com.example.michaeliverson.walmarttest.model.Pojos;
 
 import java.io.Serializable;
 

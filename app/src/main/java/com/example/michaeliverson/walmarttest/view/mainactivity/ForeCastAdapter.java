@@ -1,4 +1,4 @@
-package com.example.michaeliverson.walmarttest.View.MainActivity;
+package com.example.michaeliverson.walmarttest.view.mainactivity;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.michaeliverson.walmarttest.Model.Pojos.HourlyForecast;
+import com.example.michaeliverson.walmarttest.model.Pojos.HourlyForecast;
 import com.example.michaeliverson.walmarttest.R;
 
 import java.util.ArrayList;
@@ -21,20 +21,20 @@ import butterknife.BindView;
  */
 
 
-public class foreCastAdapter extends RecyclerView.Adapter<foreCastAdapter.ViewHolder>
+public class ForeCastAdapter extends RecyclerView.Adapter<ForeCastAdapter.ViewHolder>
 {
     private ArrayList<HourlyForecast> hourly;
     private Context context;
 
-    public foreCastAdapter() {
+    public ForeCastAdapter() {
     }
 
-    public foreCastAdapter(ArrayList<HourlyForecast> hourlyList)
+    public ForeCastAdapter(ArrayList<HourlyForecast> hourlyList)
     {
         this.hourly = hourlyList;
     }
 
-    public foreCastAdapter(Context context, ArrayList<HourlyForecast> list)
+    public ForeCastAdapter(Context context, ArrayList<HourlyForecast> list)
     {
         this.context = context;
         this.hourly = list;
@@ -44,7 +44,7 @@ public class foreCastAdapter extends RecyclerView.Adapter<foreCastAdapter.ViewHo
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflator = LayoutInflater.from(this.context);
         View holderView = inflator.inflate(R.layout.forecastcardview,parent,false);
-        foreCastAdapter.ViewHolder viewHolder = new foreCastAdapter.ViewHolder(holderView);
+        ForeCastAdapter.ViewHolder viewHolder = new ForeCastAdapter.ViewHolder(holderView);
         return viewHolder;
     }
 

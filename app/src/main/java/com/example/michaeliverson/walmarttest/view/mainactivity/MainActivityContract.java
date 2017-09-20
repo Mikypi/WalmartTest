@@ -1,8 +1,8 @@
-package com.example.michaeliverson.walmarttest.View.MainActivity;
+package com.example.michaeliverson.walmarttest.view.mainactivity;
 
-import com.example.michaeliverson.walmarttest.Model.Pojos.HourlyForecast;
-import com.example.michaeliverson.walmarttest.View.BasePresenter;
-import com.example.michaeliverson.walmarttest.View.BaseView;
+import com.example.michaeliverson.walmarttest.model.Pojos.HourlyForecast;
+import com.example.michaeliverson.walmarttest.view.BasePresenter;
+import com.example.michaeliverson.walmarttest.view.BaseView;
 
 import java.util.ArrayList;
 

@@ -1,10 +1,10 @@
 
-package com.example.michaeliverson.walmarttest.Model.Pojos;
+package com.example.michaeliverson.walmarttest.model.Pojos;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Dewpoint {
+public class Wspd {
 
     @SerializedName("english")
     @Expose

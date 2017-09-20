@@ -1,4 +1,4 @@
-package com.example.michaeliverson.walmarttest.View.MainActivity;
+package com.example.michaeliverson.walmarttest.view.mainactivity;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.michaeliverson.walmarttest.Model.Pojos.HourlyForecast;
+import com.example.michaeliverson.walmarttest.model.Pojos.HourlyForecast;
 import com.example.michaeliverson.walmarttest.R;
 
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ import butterknife.BindView;
  * Created by michaeliverson on 9/15/17.
  */
 
-public class itemAdaptor extends RecyclerView.Adapter<itemAdaptor.ViewHolder>
+public class ItemAdaptor extends RecyclerView.Adapter<ItemAdaptor.ViewHolder>
 {
     private final String zipCode = "com.example.michaeliverson.walmarttest.zipCodeKey";
     private final String shared = "com.example.michaeliverson.walmarttest";
@@ -33,10 +33,10 @@ public class itemAdaptor extends RecyclerView.Adapter<itemAdaptor.ViewHolder>
     ArrayList<HourlyForecast> data;
     HashMap<String,ArrayList<HourlyForecast>> hourly;
 
-    public itemAdaptor(Context context, ArrayList<HourlyForecast> list) {
+    public ItemAdaptor(Context context, ArrayList<HourlyForecast> list) {
         this.data = list;
         this.context = context;
-        Splice();
+        splice();
     }
 
     @Override
@@ -175,7 +175,7 @@ public class itemAdaptor extends RecyclerView.Adapter<itemAdaptor.ViewHolder>
     }
     
     // This Method set the size of the hashMap
-    private void Splice()
+    private void splice()
     {
         String dateCompare ="";
         int changeCount = 1;
@@ -237,7 +237,7 @@ public class itemAdaptor extends RecyclerView.Adapter<itemAdaptor.ViewHolder>
             layoutManager = new LinearLayoutManager(this.view.getContext(),LinearLayoutManager.HORIZONTAL,false);
             recycler.setLayoutManager(layoutManager);
             recycler.setItemAnimator(new DefaultItemAnimator());
-            recycler.setAdapter(new foreCastAdapter(this.view.getContext(),hourlyForecasts));
+            recycler.setAdapter(new ForeCastAdapter(this.view.getContext(),hourlyForecasts));
         }
     }
 }

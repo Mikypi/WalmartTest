@@ -1,4 +1,4 @@
-package com.example.michaeliverson.walmarttest.View;
+package com.example.michaeliverson.walmarttest.view;
 
 /**
  * Created by michaeliverson on 9/15/17.

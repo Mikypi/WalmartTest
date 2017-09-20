@@ -1,6 +1,6 @@
 package com.example.michaeliverson.walmarttest.Injection;
 
-import com.example.michaeliverson.walmarttest.View.MainActivity.MainActivityPresenter;
+import com.example.michaeliverson.walmarttest.view.mainactivity.MainActivityPresenter;
 
 import dagger.Module;
 import dagger.Provides;

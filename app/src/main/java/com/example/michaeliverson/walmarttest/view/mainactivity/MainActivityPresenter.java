@@ -1,10 +1,10 @@
-package com.example.michaeliverson.walmarttest.View.MainActivity;
+package com.example.michaeliverson.walmarttest.view.mainactivity;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.example.michaeliverson.walmarttest.Model.Pojos.HourlyForecast;
-import com.example.michaeliverson.walmarttest.Model.RestServices.WeatherChannel;
+import com.example.michaeliverson.walmarttest.model.Pojos.HourlyForecast;
+import com.example.michaeliverson.walmarttest.model.RestServices.WeatherChannel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,19 +19,21 @@ import retrofit2.adapter.rxjava.Result;
  */
 
 public class MainActivityPresenter implements MainActivityContract.Presenter
+
+
 {
 
-    MainActivityContract.View view;
-    Context context;
+    private MainActivityContract.View view;
+    private Context context;
     private final String shared = "com.example.michaeliverson.walmarttest";
     private final String zipCode = "com.example.michaeliverson.walmarttest.zipCodeKey";
+
 
     @Override
     public void addView(MainActivityContract.View view) {
         this.view = view;
         this.context = (Context)view;
     }
-
 
     @Override
     public void removeView() {

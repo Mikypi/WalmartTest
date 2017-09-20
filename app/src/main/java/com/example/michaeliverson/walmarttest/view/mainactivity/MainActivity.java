@@ -1,4 +1,4 @@
-package com.example.michaeliverson.walmarttest.View.MainActivity;
+package com.example.michaeliverson.walmarttest.view.mainactivity;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.michaeliverson.walmarttest.Injection.DaggerMainActivityComponent;
-import com.example.michaeliverson.walmarttest.Model.Pojos.HourlyForecast;
+import com.example.michaeliverson.walmarttest.model.Pojos.HourlyForecast;
 import com.example.michaeliverson.walmarttest.R;
 
 import java.util.ArrayList;
@@ -43,15 +43,15 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        presenter.addView(this);
         this.setUpDagger();
+        presenter.addView(this);
         String zipTest = presenter.sharedPref();
         if (zipTest == "defaultStringIfNothingFound")
         {
-            showAlert("Please Enter A Your Zip Code");
+            showAlerts("Please Enter Your Zip Code");
         }else
         {
-            Progress();
+            progress();
             presenter.saveShared(zipTest);
             presenter.getHourlyReport(zipTest);
         }
@@ -70,13 +70,12 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recylcerView.setLayoutManager(layoutManager);
         recylcerView.setItemAnimator(new DefaultItemAnimator());
-        recylcerView.setAdapter(new itemAdaptor(this,hourly));
+        recylcerView.setAdapter(new ItemAdaptor(this,hourly));
     }
 
     @Override
     public void showError(Error error) {
-        progressBar.dismiss();
-        showAlert(error.getMessage().toString());
+        showAlerts(error.getMessage().toString());
     }
 
     @Override
@@ -88,18 +87,19 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
     private void onSearch(View view) {
         if(zipCode.getText().toString() == null)
         {
-            showAlert("Please Enter Your Zip Code!!!");
+            showAlerts("Please Enter Your Zip Code!!!");
         }else
         {
-            Progress();
+            progress();
             presenter.saveShared(zipCode.getText().toString());
             presenter.getHourlyReport(zipCode.getText().toString());
         }
     }
 
-    private void showAlert(String Message)
+    private void showAlerts(String Message)
     {
-        progressBar.dismiss();
+        if (progressBar != null)
+            progressBar.dismiss();
         AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
         builder1.setMessage(Message);
         builder1.setCancelable(true);
@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
         alert11.show();
     }
 
-    private void Progress()
+    private void progress()
     {
         progressBar = new ProgressDialog(this);
         progressBar.setCancelable(true);

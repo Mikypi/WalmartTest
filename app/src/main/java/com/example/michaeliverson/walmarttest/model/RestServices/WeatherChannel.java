@@ -1,6 +1,6 @@
-package com.example.michaeliverson.walmarttest.Model.RestServices;
+package com.example.michaeliverson.walmarttest.model.RestServices;
 
-import com.example.michaeliverson.walmarttest.Model.Pojos.HourlyForecast;
+import com.example.michaeliverson.walmarttest.model.Pojos.HourlyForecast;
 
 import java.util.List;
 
