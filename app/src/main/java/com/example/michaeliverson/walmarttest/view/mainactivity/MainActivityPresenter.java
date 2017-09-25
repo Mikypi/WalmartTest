@@ -9,6 +9,8 @@ import com.example.michaeliverson.walmarttest.model.RestServices.WeatherChannel;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -22,7 +24,7 @@ public class MainActivityPresenter implements MainActivityContract.Presenter
 
 
 {
-
+    @Inject MainActivityPresenter presentWeather;
     private MainActivityContract.View view;
     private Context context;
     private final String shared = "com.example.michaeliverson.walmarttest";
@@ -33,6 +35,7 @@ public class MainActivityPresenter implements MainActivityContract.Presenter
     public void addView(MainActivityContract.View view) {
         this.view = view;
         this.context = (Context)view;
+        ((WalmartTest.))
     }
 
     @Override
@@ -49,11 +52,7 @@ public class MainActivityPresenter implements MainActivityContract.Presenter
         result.enqueue(new Callback<Result<List<HourlyForecast>>>() {
             @Override
             public void onResponse(Call<Result<List<HourlyForecast>>> call, Response<Result<List<HourlyForecast>>> response) {
-                for (HourlyForecast hourly:response.body().response().body())
-                {
-                    hourlyForcast.add(hourly);
-                }
-                view.upDateHourly(hourlyForcast);
+                view.upDateHourly(new ArrayList<HourlyForecast>(response.body().response().body()));
             }
 
             @Override

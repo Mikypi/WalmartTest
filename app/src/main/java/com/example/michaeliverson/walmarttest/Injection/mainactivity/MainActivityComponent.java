@@ -1,4 +1,4 @@
-package com.example.michaeliverson.walmarttest.Injection;
+package com.example.michaeliverson.walmarttest.Injection.mainactivity;
 
 import com.example.michaeliverson.walmarttest.view.mainactivity.MainActivity;
 
